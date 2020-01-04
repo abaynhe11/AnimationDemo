@@ -2,7 +2,9 @@
 <set
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <objectAnimator
+    <set>
+
+        <objectAnimator
             android:propertyName="translationX"
             android:duration="1000"
             android:valueFrom="0"
@@ -11,7 +13,7 @@
             android:repeatCount="1"
             android:repeatMode="reverse"/>
 
-    <objectAnimator
+        <objectAnimator
             android:propertyName="translationY"
             android:duration="1000"
             android:valueFrom="0"
@@ -19,4 +21,7 @@
             android:valueType="floatType"
             android:repeatCount="1"
             android:repeatMode="reverse"/>
+
+    </set>
+    
 </set>
