@@ -2,6 +2,8 @@ package com.sriyank.animationsdemo
 
 import android.animation.Animator
 import android.animation.AnimatorInflater
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -11,10 +13,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
-	private var mRotateAnimator : Animator? = null
-	private var mScaleAnimator : Animator? = null
-	private var mTranslateAnimator : Animator? = null
-	private var mFadeAnimator : Animator? = null
+	private var mRotateAnimator : ObjectAnimator? = null
+	private var mScaleAnimator : ObjectAnimator? = null
+	private var mTranslateAnimator : ObjectAnimator? = null
+	private var mFadeAnimator : ObjectAnimator? = null
 
 
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +28,11 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
 	fun rotateAnimation(view: View) {
 
-		mRotateAnimator = AnimatorInflater.loadAnimator(this, R.animator.rotate)
+		mRotateAnimator = ObjectAnimator.ofFloat(targetImage,"rotation",0f,180f)
 		mRotateAnimator?.apply {
-			setTarget(targetImage)
+			duration = 1500
+            repeatCount = 1
+            repeatMode = ValueAnimator.REVERSE
 			addListener(this@MainActivity)
 			start()
 
@@ -37,9 +41,11 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
 	fun scaleAnimation(view: View) {
 
-		mScaleAnimator = AnimatorInflater.loadAnimator(this, R.animator.scale)
+		mScaleAnimator = ObjectAnimator.ofFloat(targetImage,"scaleX", 1f, 3f)
 		mScaleAnimator?.apply {
-			setTarget(targetImage)
+			duration = 1000
+            repeatCount = 1
+            repeatMode = ValueAnimator.REVERSE
 			addListener(this@MainActivity)
 			start()
 		}
@@ -47,9 +53,11 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
 	fun translateAnimation(view: View) {
 
-		mTranslateAnimator= AnimatorInflater.loadAnimator(this, R.animator.translate)
+		mTranslateAnimator= ObjectAnimator.ofFloat(targetImage, "translationX", 0f, 200f )
 		mTranslateAnimator?.apply {
-			setTarget(targetImage)
+			duration = 1000
+            repeatCount = 1
+            repeatMode = ValueAnimator.REVERSE
 			addListener(this@MainActivity)
 			start()
 		}
@@ -57,9 +65,11 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
 	fun fadeAnimation(view: View) {
 
-		mFadeAnimator= AnimatorInflater.loadAnimator(this, R.animator.alpha)
+		mFadeAnimator= ObjectAnimator.ofFloat(targetImage, "alpha", 1f, 0f)
 		mFadeAnimator?.apply {
-			setTarget(targetImage)
+			duration = 1500
+            repeatMode = ValueAnimator.REVERSE
+            repeatCount = 1
 			addListener(this@MainActivity)
 			start()
 
