@@ -1,9 +1,6 @@
 package com.sriyank.animationsdemo
 
-import android.animation.Animator
-import android.animation.AnimatorInflater
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
+import android.animation.*
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -104,13 +101,13 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
                 Log.d("@@ANIMATION@@", "Rotate Animation End")
 
             mScaleAnimator ->
-                    Log.d("@@ANIMATION@@", "Scale Animation End")
+                Log.d("@@ANIMATION@@", "Scale Animation End")
 
             mTranslateAnimator ->
-                    Log.d("@@ANIMATION@@", "Translate Animation End")
+                Log.d("@@ANIMATION@@", "Translate Animation End")
 
             mFadeAnimator ->
-                    Log.d("@@ANIMATION@@", "Fade Animation End")
+                Log.d("@@ANIMATION@@", "Fade Animation End")
         }
     }
 
@@ -146,6 +143,42 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
     fun setFromCode(view: View) {
 
+        // Root Animator Set
+        val rootSet = AnimatorSet()
+
+        // Flip Animation
+        val flip = ObjectAnimator.ofFloat(targetImage, "rotationX", 0.0f, 360.0f)
+        flip.duration = 500
+
+        // Child Animator Set
+        val childSet = AnimatorSet()
+
+        // Scale Animations
+        val scaleX = ObjectAnimator.ofFloat(targetImage, "scaleX", 1.0f, 1.5f)
+        scaleX?.apply {
+            duration = 500
+            repeatCount= 1
+            repeatMode = ValueAnimator.REVERSE
+        }
+
+
+        val scaleY = ObjectAnimator.ofFloat(targetImage, "scaleY", 1.0f, 1.5f)
+        scaleY?.apply {
+            duration = 500
+            repeatCount= 1
+            repeatMode = ValueAnimator.REVERSE
+        }
+
+
+        //////Option 1 /////////
+        /*rootSet.playSequentially(flip,childSet)
+        childSet.playTogether(scaleX,scaleY)
+        rootSet.start()*/
+
+        //////Option 2 ////////
+        rootSet.play(childSet).after(flip) //or// rootSet.play(flip).before(childSet)
+        childSet.playTogether(scaleX,scaleY)
+        rootSet.start()
     }
 
 
