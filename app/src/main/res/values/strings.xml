@@ -4,5 +4,7 @@
 	<string name="scale">Scale</string>
 	<string name="fade">Fade</string>
 	<string name="translate">Translate</string>
-	
+	<string name="set_from_xml">Set From XML</string>
+	<string name="set_from_code">Set From Code</string>
+
 </resources>

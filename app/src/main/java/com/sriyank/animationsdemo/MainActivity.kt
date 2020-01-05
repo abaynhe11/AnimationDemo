@@ -135,4 +135,18 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
 
+    fun setFromXML(view: View) {
+
+        val animator = AnimatorInflater.loadAnimator(this, R.animator.set)
+        animator.apply {
+            setTarget(targetImage)
+            start()
+        }
+    }
+
+    fun setFromCode(view: View) {
+
+    }
+
+
 }

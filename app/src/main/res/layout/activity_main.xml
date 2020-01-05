@@ -5,11 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <Button
+        android:id="@+id/button_set_from_xml"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:onClick="setFromXML"
+        android:text="@string/set_from_xml"
+        app:layout_constraintBottom_toTopOf="@+id/button_rotate"
+        app:layout_constraintEnd_toStartOf="@+id/button_set_from_code"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_set_from_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="setFromCode"
+        android:text="@string/set_from_code"
+        app:layout_constraintBottom_toBottomOf="@+id/button_set_from_xml"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_set_from_xml"
+        app:layout_constraintTop_toTopOf="@+id/button_set_from_xml" />
+
     <Button
         android:id="@+id/button_rotate"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="8dp"
         android:onClick="rotateAnimation"
         android:text="@string/rotate"
@@ -20,7 +50,7 @@
 
     <Button
         android:id="@+id/button_scale"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:onClick="scaleAnimation"
@@ -44,7 +74,7 @@
 
     <Button
         android:id="@+id/button_fade"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
@@ -59,7 +89,7 @@
         android:id="@+id/targetImage"
         android:layout_width="192dp"
         android:layout_height="141dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
