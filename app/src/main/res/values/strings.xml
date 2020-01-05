@@ -7,5 +7,6 @@
 	<string name="set_from_xml">Set From XML</string>
 	<string name="set_from_code">Set From Code</string>
 	<string name="view_property_animator">View Property Animator</string>
+	<string name="property_value_holder_animator">Property Values Holder</string>
 
 </resources>

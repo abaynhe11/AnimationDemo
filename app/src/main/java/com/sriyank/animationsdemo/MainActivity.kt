@@ -200,4 +200,20 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
             start()
         }
     }
+
+    fun propertyValueHolder(view: View){
+
+        val rotateX = PropertyValuesHolder.ofFloat("rotationX", 360f)
+        val scaleX = PropertyValuesHolder.ofFloat("scaleX", 1.5f)
+        val scaleY = PropertyValuesHolder.ofFloat("scaleY", 1.5f)
+
+        val objectAnimator = ObjectAnimator.ofPropertyValuesHolder(targetImage,rotateX,scaleX,scaleY)
+        objectAnimator.apply {
+            duration = 1500
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = 1
+            interpolator = OvershootInterpolator()
+            start()
+        }
+    }
 }

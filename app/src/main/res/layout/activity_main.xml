@@ -7,14 +7,29 @@
 
 
     <Button
-        android:id="@+id/button_view_property_animator"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_property_value_holder_animator"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="propertyValueHolder"
+        android:text="@string/property_value_holder_animator"
+        app:layout_constraintBottom_toBottomOf="@+id/button_view_property_animator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_view_property_animator"
+        app:layout_constraintTop_toTopOf="@+id/button_view_property_animator" />
+
+    <Button
+        android:id="@+id/button_view_property_animator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
         android:onClick="viewPropertyAnimator"
         android:text="@string/view_property_animator"
         app:layout_constraintBottom_toTopOf="@+id/button_set_from_xml"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_property_value_holder_animator"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -23,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:onClick="setFromXML"
         android:text="@string/set_from_xml"
         app:layout_constraintBottom_toTopOf="@+id/button_rotate"
@@ -100,7 +115,7 @@
         android:id="@+id/targetImage"
         android:layout_width="192dp"
         android:layout_height="141dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
