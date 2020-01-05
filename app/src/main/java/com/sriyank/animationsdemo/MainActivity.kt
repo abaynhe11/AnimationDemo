@@ -5,6 +5,7 @@ import android.animation.AnimatorInflater
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,122 +14,125 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
-	private var mRotateAnimator : ObjectAnimator? = null
-	private var mScaleAnimator : ObjectAnimator? = null
-	private var mTranslateAnimator : ObjectAnimator? = null
-	private var mFadeAnimator : ObjectAnimator? = null
+    private var mRotateAnimator: ObjectAnimator? = null
+    private var mScaleAnimator: ObjectAnimator? = null
+    private var mTranslateAnimator: ObjectAnimator? = null
+    private var mFadeAnimator: ObjectAnimator? = null
 
 
-	override fun onCreate(savedInstanceState: Bundle?) {
-		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-	}
+    }
 
 
-	fun rotateAnimation(view: View) {
+    fun rotateAnimation(view: View) {
 
-		mRotateAnimator = ObjectAnimator.ofFloat(targetImage,"rotation",0f,180f)
-		mRotateAnimator?.apply {
-			duration = 1500
+        mRotateAnimator = ObjectAnimator.ofFloat(targetImage, "rotation", 0f, 180f)
+        mRotateAnimator?.apply {
+            duration = 1500
             repeatCount = 1
             repeatMode = ValueAnimator.REVERSE
-			addListener(this@MainActivity)
-			start()
+            addListener(this@MainActivity)
+            start()
 
-		}
-	}
+        }
+    }
 
-	fun scaleAnimation(view: View) {
+    fun scaleAnimation(view: View) {
 
-		mScaleAnimator = ObjectAnimator.ofFloat(targetImage,"scaleX", 1f, 3f)
-		mScaleAnimator?.apply {
-			duration = 1000
+        mScaleAnimator = ObjectAnimator.ofFloat(targetImage, "scaleX", 1f, 3f)
+        mScaleAnimator?.apply {
+            duration = 1000
             repeatCount = 1
             repeatMode = ValueAnimator.REVERSE
-			addListener(this@MainActivity)
-			start()
-		}
-	}
+            addListener(this@MainActivity)
+            start()
+        }
+    }
 
-	fun translateAnimation(view: View) {
+    fun translateAnimation(view: View) {
 
-		mTranslateAnimator= ObjectAnimator.ofFloat(targetImage, "translationX", 0f, 200f )
-		mTranslateAnimator?.apply {
-			duration = 1000
+        mTranslateAnimator = ObjectAnimator.ofFloat(targetImage, "translationX", 0f, 200f)
+        mTranslateAnimator?.apply {
+            duration = 1000
             repeatCount = 1
             repeatMode = ValueAnimator.REVERSE
-			addListener(this@MainActivity)
-			start()
-		}
-	}
+            addListener(this@MainActivity)
+            start()
+        }
+    }
 
-	fun fadeAnimation(view: View) {
+    fun fadeAnimation(view: View) {
 
-		mFadeAnimator= ObjectAnimator.ofFloat(targetImage, "alpha", 1f, 0f)
-		mFadeAnimator?.apply {
-			duration = 1500
+        mFadeAnimator = ObjectAnimator.ofFloat(targetImage, "alpha", 1f, 0f)
+        mFadeAnimator?.apply {
+            duration = 1500
             repeatMode = ValueAnimator.REVERSE
             repeatCount = 1
-			addListener(this@MainActivity)
-			start()
+            addListener(this@MainActivity)
+            start()
 
-		}
-	}
+        }
+    }
 
-	override fun onAnimationRepeat(animation: Animator?) {
+    override fun onAnimationRepeat(animation: Animator?) {
 
-		when(animation){
-			mRotateAnimator->
-				Toast.makeText(this, "Rotate Animation Repeat", Toast.LENGTH_SHORT).show()
+        when (animation) {
+            mRotateAnimator ->
+                Log.d("@@ANIMATION@@", "Rotate Animation Repeat")
 
-			mScaleAnimator->
-				Toast.makeText(this, "Scale Animation Repeat", Toast.LENGTH_SHORT).show()
+            mScaleAnimator ->
 
-			mTranslateAnimator->
-				Toast.makeText(this, "Translate Animation Repeat", Toast.LENGTH_SHORT).show()
+                Log.d("@@ANIMATION@@", "Scale Animation Repeat")
 
-			mFadeAnimator->
-				Toast.makeText(this, "Fade Animation Repeat", Toast.LENGTH_SHORT).show()
-		}
+            mTranslateAnimator ->
 
-	}
+                Log.d("@@ANIMATION@@", "Translate Animation Repeat")
 
-	override fun onAnimationEnd(animation: Animator?) {
-		when(animation){
-			mRotateAnimator->
-				Toast.makeText(this, "Rotate Animation End", Toast.LENGTH_SHORT).show()
+            mFadeAnimator ->
 
-			mScaleAnimator->
-				Toast.makeText(this, "Scale Animation End", Toast.LENGTH_SHORT).show()
+                Log.d("@@ANIMATION@@", "Fade Animation Repeat")
+        }
 
-			mTranslateAnimator->
-				Toast.makeText(this, "Translate Animation End", Toast.LENGTH_SHORT).show()
+    }
 
-			mFadeAnimator->
-				Toast.makeText(this, "Fade Animation End", Toast.LENGTH_SHORT).show()
-		}
-	}
+    override fun onAnimationEnd(animation: Animator?) {
+        when (animation) {
+            mRotateAnimator ->
+                Log.d("@@ANIMATION@@", "Rotate Animation End")
 
-	override fun onAnimationCancel(animation: Animator?) {
-		Toast.makeText(this, "Animation Cancel", Toast.LENGTH_SHORT).show()
-	}
+            mScaleAnimator ->
+                    Log.d("@@ANIMATION@@", "Scale Animation End")
 
-	override fun onAnimationStart(animation: Animator?) {
-		when(animation){
-			mRotateAnimator->
-				Toast.makeText(this, "Rotate Animation Start", Toast.LENGTH_SHORT).show()
+            mTranslateAnimator ->
+                    Log.d("@@ANIMATION@@", "Translate Animation End")
 
-			mScaleAnimator->
-				Toast.makeText(this, "Scale Animation Start", Toast.LENGTH_SHORT).show()
+            mFadeAnimator ->
+                    Log.d("@@ANIMATION@@", "Fade Animation End")
+        }
+    }
 
-			mTranslateAnimator->
-				Toast.makeText(this, "Translate Animation Start", Toast.LENGTH_SHORT).show()
+    override fun onAnimationCancel(animation: Animator?) {
+        Toast.makeText(this, "Animation Cancel", Toast.LENGTH_SHORT).show()
+    }
 
-			mFadeAnimator->
-				Toast.makeText(this, "Fade Animation Start", Toast.LENGTH_SHORT).show()
-		}
-	}
+    override fun onAnimationStart(animation: Animator?) {
+        when (animation) {
+            mRotateAnimator ->
+                Log.d("@@ANIMATION@@", "Rotate Animation Start")
+
+            mScaleAnimator ->
+                Log.d("@@ANIMATION@@", "Scale Animation Start")
+
+            mTranslateAnimator ->
+                Log.d("@@ANIMATION@@", "Translate Animation Start")
+
+            mFadeAnimator ->
+                Log.d("@@ANIMATION@@", "Fade Animation Start")
+        }
+    }
 
 
 }
