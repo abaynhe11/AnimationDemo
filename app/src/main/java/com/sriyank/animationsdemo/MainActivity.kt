@@ -4,6 +4,7 @@ import android.animation.*
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.animation.BounceInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -159,6 +160,7 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
             duration = 500
             repeatCount= 1
             repeatMode = ValueAnimator.REVERSE
+            interpolator = BounceInterpolator()
         }
 
 
@@ -167,6 +169,7 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
             duration = 500
             repeatCount= 1
             repeatMode = ValueAnimator.REVERSE
+            interpolator = BounceInterpolator()
         }
 
 

@@ -21,7 +21,8 @@
             android:valueTo="1.5"
             android:valueType="floatType"
             android:repeatMode="reverse"
-            android:repeatCount="1"/>
+            android:repeatCount="1"
+            android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
 
         <objectAnimator
             android:propertyName="scaleY"
@@ -30,7 +31,8 @@
             android:valueTo="1.5"
             android:valueType="floatType"
             android:repeatMode="reverse"
-            android:repeatCount="1"/>
+            android:repeatCount="1"
+            android:interpolator="@android:anim/anticipate_overshoot_interpolator"/>
 
 
     </set>
