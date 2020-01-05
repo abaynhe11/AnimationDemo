@@ -4,8 +4,11 @@ import android.animation.*
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewPropertyAnimator
 import android.view.animation.BounceInterpolator
+import android.view.animation.OvershootInterpolator
 import android.widget.Toast
+import android.widget.ViewAnimator
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -185,4 +188,16 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
 
+    fun viewPropertyAnimator(view: View){
+
+        val vpa = targetImage.animate()
+        vpa?.apply {
+            duration = 1500
+            rotationX(360f)
+            scaleX(1.5f)
+            scaleY(1.5f)
+            interpolator  = OvershootInterpolator()
+            start()
+        }
+    }
 }
