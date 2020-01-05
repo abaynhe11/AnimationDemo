@@ -1,12 +1,14 @@
 <resources>
-	<string name="app_name">AnimationsDemo</string>
-	<string name="rotate">Rotate</string>
-	<string name="scale">Scale</string>
-	<string name="fade">Fade</string>
-	<string name="translate">Translate</string>
-	<string name="set_from_xml">Set From XML</string>
-	<string name="set_from_code">Set From Code</string>
-	<string name="view_property_animator">View Property Animator</string>
-	<string name="property_value_holder_animator">Property Values Holder</string>
+    <string name="app_name">AnimationsDemo</string>
+    <string name="rotate">Rotate</string>
+    <string name="scale">Scale</string>
+    <string name="fade">Fade</string>
+    <string name="translate">Translate</string>
+    <string name="set_from_xml">Set From XML</string>
+    <string name="set_from_code">Set From Code</string>
+    <string name="view_property_animator">View Property Animator</string>
+    <string name="property_value_holder_animator">Property Values Holder</string>
+    <string name="stop_restart_animation">Stop/ Restart</string>
+    <string name="drawable_animation">Drawable Animation</string>
 
 </resources>

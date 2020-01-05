@@ -1,8 +1,11 @@
 package com.sriyank.animationsdemo
 
 import android.animation.*
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewPropertyAnimator
 import android.view.animation.BounceInterpolator
@@ -215,5 +218,18 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
             interpolator = OvershootInterpolator()
             start()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.action_drawable_animation){
+            startActivity(Intent(this, DrawableAnimationActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
