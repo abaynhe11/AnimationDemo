@@ -7,11 +7,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewPropertyAnimator
 import android.view.animation.BounceInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.Toast
-import android.widget.ViewAnimator
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -227,8 +225,14 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if(item.itemId == R.id.action_drawable_animation){
-            startActivity(Intent(this, DrawableAnimationActivity::class.java))
+        when (item.itemId) {
+
+            R.id.action_frame_animation ->
+                startActivity(Intent(this, FrameAnimationActivity::class.java))
+            R.id.action_vector_animation ->
+                startActivity(Intent(this, VectorAnimationActivity::class.java))
+
+
         }
         return super.onOptionsItemSelected(item)
     }

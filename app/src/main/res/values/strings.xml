@@ -9,6 +9,7 @@
     <string name="view_property_animator">View Property Animator</string>
     <string name="property_value_holder_animator">Property Values Holder</string>
     <string name="stop_restart_animation">Stop/ Restart</string>
-    <string name="drawable_animation">Drawable Animation</string>
+    <string name="frame_animation">Frame Animation</string>
+    <string name="vector_animation">Vector Animation</string>
 
 </resources>
