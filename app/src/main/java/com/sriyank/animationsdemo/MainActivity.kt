@@ -231,7 +231,8 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
                 startActivity(Intent(this, FrameAnimationActivity::class.java))
             R.id.action_vector_animation ->
                 startActivity(Intent(this, VectorAnimationActivity::class.java))
-
+            R.id.action_transition_animation ->
+                startActivity(Intent(this, TransitionActivity::class.java))
 
         }
         return super.onOptionsItemSelected(item)
