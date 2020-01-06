@@ -233,6 +233,8 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
                 startActivity(Intent(this, VectorAnimationActivity::class.java))
             R.id.action_transition_animation ->
                 startActivity(Intent(this, TransitionActivity::class.java))
+            R.id.action_key_frame_animation->
+                startActivity(Intent(this, KeyFrameAnimationActivity::class.java))
 
         }
         return super.onOptionsItemSelected(item)
