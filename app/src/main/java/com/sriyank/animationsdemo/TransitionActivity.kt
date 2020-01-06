@@ -2,11 +2,9 @@ package com.sriyank.animationsdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.transition.Scene
-import android.transition.Transition
-import android.transition.TransitionInflater
-import android.transition.TransitionManager
+import android.transition.*
 import android.view.View
+import android.view.animation.LinearInterpolator
 import kotlinx.android.synthetic.main.activity_transition.*
 
 class TransitionActivity : AppCompatActivity() {
@@ -15,6 +13,7 @@ class TransitionActivity : AppCompatActivity() {
     private lateinit var scene2: Scene
     private lateinit var currentScene: Scene
     private lateinit var transition: Transition
+    private lateinit var transitionSet : TransitionSet
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,31 @@ class TransitionActivity : AppCompatActivity() {
         scene2 = Scene.getSceneForLayout(sceneRoot, R.layout.scene2, this)
 
         // Step 2: Create a Transition object to define what type of animation you want
-        transition = TransitionInflater.from(this).inflateTransition(R.transition.example_2)
+
+        //// Transition From XML
+        //transition = TransitionInflater.from(this).inflateTransition(R.transition.example_2)
+
+        //// Transition From Code
+
+        val cbTransition = ChangeBounds()
+        cbTransition.duration = 500
+        cbTransition.interpolator = LinearInterpolator()
+
+        val fadeInTransition = Fade(Fade.IN)
+        fadeInTransition.duration = 250
+        fadeInTransition.startDelay = 400
+        fadeInTransition.addTarget(R.id.txvTitle)
+
+        val fadeOutTransition = Fade(Fade.OUT)
+        fadeOutTransition.startDelay = 50
+        fadeInTransition.addTarget(R.id.txvTitle)
+
+        transitionSet = TransitionSet()
+        transitionSet.ordering = TransitionSet.ORDERING_TOGETHER
+
+        transitionSet.addTransition(cbTransition)
+        transitionSet.addTransition(fadeInTransition)
+        transitionSet.addTransition(fadeOutTransition)
 
         scene1.enter()
         currentScene = scene1
@@ -36,10 +59,10 @@ class TransitionActivity : AppCompatActivity() {
 
         // Step 3: Call TransitionManager.go() to run animation
         currentScene = if(currentScene == scene1){
-            TransitionManager.go(scene2, transition)
+            TransitionManager.go(scene2, transitionSet)
             scene2
         }else{
-            TransitionManager.go(scene1, transition)
+            TransitionManager.go(scene1, transitionSet)
             scene1
         }
 
