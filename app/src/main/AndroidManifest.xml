@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sriyank.animationsdemo">
 
     <application
@@ -8,14 +9,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".KeyFrameAnimationActivity"></activity>
-        <activity android:name=".TransitionActivity" />
-        <activity android:name=".VectorAnimationActivity" />
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.ViewPagerAnimationActivity"
+            android:parentActivityName=".ui.MainActivity"/>
+        <activity android:name=".ui.RecyclerViewAnimationActivity"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity
-            android:name=".FrameAnimationActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+            android:name=".ui.KeyFrameAnimationActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.TransitionActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.VectorAnimationActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.FrameAnimationActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

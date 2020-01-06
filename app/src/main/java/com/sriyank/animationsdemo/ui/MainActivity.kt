@@ -1,4 +1,4 @@
-package com.sriyank.animationsdemo
+package com.sriyank.animationsdemo.ui
 
 import android.animation.*
 import android.content.Intent
@@ -11,6 +11,7 @@ import android.view.animation.BounceInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.sriyank.animationsdemo.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -139,7 +140,9 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
     fun setFromXML(view: View) {
 
-        val animator = AnimatorInflater.loadAnimator(this, R.animator.set)
+        val animator = AnimatorInflater.loadAnimator(this,
+            R.animator.set
+        )
         animator.apply {
             setTarget(targetImage)
             start()
@@ -233,8 +236,12 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
                 startActivity(Intent(this, VectorAnimationActivity::class.java))
             R.id.action_transition_animation ->
                 startActivity(Intent(this, TransitionActivity::class.java))
-            R.id.action_key_frame_animation->
+            R.id.action_key_frame_animation ->
                 startActivity(Intent(this, KeyFrameAnimationActivity::class.java))
+            R.id.action_recycler_animation ->
+                startActivity(Intent(this, RecyclerViewAnimationActivity::class.java))
+            R.id.action_view_pager_animation->
+                startActivity(Intent(this, ViewPagerAnimationActivity::class.java))
 
         }
         return super.onOptionsItemSelected(item)

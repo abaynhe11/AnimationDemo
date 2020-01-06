@@ -1,9 +1,10 @@
-package com.sriyank.animationsdemo
+package com.sriyank.animationsdemo.ui
 
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.sriyank.animationsdemo.R
 import kotlinx.android.synthetic.main.activity_frame_animation.*
 
 class FrameAnimationActivity : AppCompatActivity() {

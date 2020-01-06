@@ -1,4 +1,4 @@
-package com.sriyank.animationsdemo
+package com.sriyank.animationsdemo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.animation.AnticipateOvershootInterpolator
 import androidx.constraintlayout.widget.ConstraintSet
+import com.sriyank.animationsdemo.R
 import kotlinx.android.synthetic.main.activity_key_frame_animation.*
 
 

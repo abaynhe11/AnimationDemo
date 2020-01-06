@@ -1,10 +1,11 @@
-package com.sriyank.animationsdemo
+package com.sriyank.animationsdemo.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.*
 import android.view.View
 import android.view.animation.LinearInterpolator
+import com.sriyank.animationsdemo.R
 import kotlinx.android.synthetic.main.activity_transition.*
 
 class TransitionActivity : AppCompatActivity() {
